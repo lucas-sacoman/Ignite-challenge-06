@@ -2,10 +2,10 @@ import { Button, Flex, Img } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
 const Header = () => {
-	const { asPath, push, back } = useRouter();
+	const { asPath, push } = useRouter();
 
 	return (
-		<Flex align="center" justify="center" py="4">
+		<Flex w="max-content" mx="auto" h="100px" align="center" justify="center">
 			{asPath.startsWith("/continent") && (
 				<Button
 					bg="transparent"
