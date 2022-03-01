@@ -1,5 +1,5 @@
 import { Heading, Img, Stack, WrapItem } from "@chakra-ui/react";
-import { CategoryWrapData } from "../../types/interfaces";
+import { CategoryWrapData } from "../../types";
 
 const CategoryWrap = ({ title, image }: CategoryWrapData) => {
 	return (
@@ -9,15 +9,15 @@ const CategoryWrap = ({ title, image }: CategoryWrapData) => {
 			_hover={{ transition: ".3s", boxShadow: "xl" }}
 		>
 			<Stack
-				w="200px"
-				h="200px"
+				w={["160px", "200px"]}
+				h={["160px", "200px"]}
 				direction="column"
 				align="center"
 				justify="center"
 				spacing="8"
 			>
-				<Img src={image} w="80px" h="85px" />
-				<Heading fontSize="24px">{title}</Heading>
+				<Img src={image} w={["60px", "80px"]} h={["65px", "85px"]} />
+				<Heading fontSize={["20px", "24px"]}>{title}</Heading>
 			</Stack>
 		</WrapItem>
 	);
