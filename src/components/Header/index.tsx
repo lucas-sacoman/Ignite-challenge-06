@@ -11,7 +11,7 @@ const Header = () => {
 					bg="transparent"
 					position="absolute"
 					left="0"
-					ml="20"
+					ml="32"
 					onClick={() => push("/")}
 				>
 					<Img src="assets/back-arrow.svg" w="8px" h="16px" />

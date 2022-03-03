@@ -1,18 +1,12 @@
-import {
-	Flex,
-	Heading,
-	Stack,
-	Text,
-	useBreakpointValue,
-} from "@chakra-ui/react";
+import { Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ContinentData } from "../../types";
+import styles from "./styles.module.css";
 
 const SwiperWrap = () => {
 	const [continents, setContinents] = useState<ContinentData[]>([]);
-	const isWideVersion = useBreakpointValue({ base: false, lg: true });
 
 	useEffect(() => {
 		fetch("/api/continents")
@@ -30,6 +24,7 @@ const SwiperWrap = () => {
 				}}
 				pagination={{
 					clickable: true,
+					bulletActiveClass: `${styles["active-swiper-bullets"]}`,
 				}}
 				modules={[Autoplay, Pagination]}
 				className="mySwiper"
@@ -48,7 +43,7 @@ const SwiperWrap = () => {
 							flexDirection: "column",
 							textAlign: "center",
 							justifyContent: "center",
-							boxShadow: "inset 0 0 5000px 70px rgba(0, 0, 0, 1)",
+							boxShadow: "inset 0 0 1000px 0px rgba(0, 0, 0, 1)",
 						}}
 					>
 						<Stack spacing="4">
