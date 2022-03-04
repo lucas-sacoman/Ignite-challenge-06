@@ -11,15 +11,15 @@ const Header = () => {
 					bg="transparent"
 					position="absolute"
 					left="0"
-					ml="32"
+					ml={["20px", "100px"]}
 					onClick={() => push("/")}
 				>
-					<Img src="assets/back-arrow.svg" w="8px" h="16px" />
+					<Img src="/assets/back-arrow.svg" w="8px" h="16px" />
 				</Button>
 			)}
 
 			<Img
-				src="assets/logo.svg"
+				src="/assets/logo.svg"
 				w="184px"
 				h="46px"
 				cursor="pointer"

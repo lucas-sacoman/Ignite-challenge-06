@@ -1,4 +1,5 @@
 import { Flex, Heading, Stack, Text } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,6 +8,7 @@ import styles from "./styles.module.css";
 
 const SwiperWrap = () => {
 	const [continents, setContinents] = useState<ContinentData[]>([]);
+	const router = useRouter();
 
 	useEffect(() => {
 		fetch("/api/continents")
@@ -14,6 +16,10 @@ const SwiperWrap = () => {
 			.then((data) => setContinents(data))
 			.catch((err) => alert(err));
 	}, []);
+
+	const handleSelectContinent = (title: string) => {
+		router.push(`/continent/${title.toLowerCase()}`);
+	};
 
 	return (
 		<Flex h="450px" maxW="7xl" mx="auto" my="14">
@@ -31,6 +37,7 @@ const SwiperWrap = () => {
 			>
 				{continents.map((continent) => (
 					<SwiperSlide
+						onClick={() => handleSelectContinent(continent.title)}
 						key={continent.id}
 						style={{
 							backgroundImage: `url('${continent.image}')`,
@@ -44,6 +51,7 @@ const SwiperWrap = () => {
 							textAlign: "center",
 							justifyContent: "center",
 							boxShadow: "inset 0 0 1000px 0px rgba(0, 0, 0, 1)",
+							cursor: "pointer",
 						}}
 					>
 						<Stack spacing="4">

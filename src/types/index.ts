@@ -10,3 +10,11 @@ export interface ContinentData {
 	description: string;
 	image: string;
 }
+
+export interface CityData {
+	id?: number;
+	city: string;
+	country: string;
+	image: string;
+	background: string;
+}
